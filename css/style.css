@@ -76,6 +76,9 @@ body {
 #reset-btn {
     width: 55%;
     margin: 30px auto;
+    background-color: dimgrey;
+    border: none;
+    color: white;
 }
 
 @media screen and (max-width: 480px) {
@@ -91,3 +94,14 @@ body {
 #wholePage {
     padding: 0px;
 }
+
+img {
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.btn-primary {
+    background-color: dimgrey;
+    border: none;
+}
+
