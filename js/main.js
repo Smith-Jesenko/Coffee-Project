@@ -39,16 +39,16 @@ const renderCoffee = (coffee) => {
 	let imgSrc;
 	switch (roast.toLowerCase()) {
 		case 'light':
-			imgSrc = './img/Converse Cappuccino.svg';
+			imgSrc = './img/Sneak-a-Latte.svg';
 			break;
 		case 'medium':
-			imgSrc = './img/High-Top Brew.svg';
+			imgSrc = './img/Converse Cappuccino.svg';
 			break;
 		case 'dark':
 			imgSrc = './img/Jumpman Java.svg';
 			break;
 		default:
-			imgSrc = './img/Puma Mocha.svg';
+			imgSrc = './img/default.svg';
 	}
 
 	coffeeElement.innerHTML = `
