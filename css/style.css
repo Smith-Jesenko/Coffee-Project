@@ -1,0 +1,79 @@
+@font-face {
+    font-family: "SFEspressoShack";
+    src: url("../fonts/SFEspressoShackCondensed.ttf");
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-family: "SFEspressoShack", "Sans-Serif";
+    font-size: 5rem;
+    letter-spacing: .2rem;
+}
+
+h2 {
+    font-family: "SFEspressoShack", "Sans-Serif";
+}
+
+hr {
+    width: 95%;
+    margin: 0 auto;
+}
+
+#form-container {
+    padding-left: 0;
+}
+
+form {
+    margin-top: 20px;
+}
+
+body {
+    color: white;
+}
+
+#coffees{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.coffee {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 50%;
+}
+
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -9;
+}
+
+#reset-btn {
+    width: 55%;
+    margin: 30px auto;
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .heading-wrapper {
+        text-align: center;
+    }
+}
