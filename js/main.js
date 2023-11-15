@@ -39,11 +39,7 @@ const renderCoffee = (coffee) => {
 	let imgSrc;
 	switch (roast.toLowerCase()) {
 		case 'light':
-<<<<<<<<< Temporary merge branch 1
 			imgSrc = './img/Sneak-a-Latte.svg';
-=========
-			imgSrc = './img/High-Top Brew.svg';
->>>>>>>>> Temporary merge branch 2
 			break;
 		case 'medium':
 			imgSrc = './img/Converse Cappuccino.svg';
