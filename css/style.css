@@ -13,18 +13,19 @@ form {
 }
 
 
-h1 {
+.heading-wrapper h1 {
     display: flex;
     justify-content: center;
     font-family: 'Chicle', serif;
     font-size: 5rem;
     letter-spacing: .2rem;
 }
+
 .heading-wrapper #sneaker-inspired {
     text-align: center;
     font-family: 'Cinzel Decorative', cursive;
     font-size: 1.5rem;
-    color: white ;
+    color: white;
     margin-top: 0;
     margin-bottom: 10px;
 }
