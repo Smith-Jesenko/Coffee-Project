@@ -112,6 +112,8 @@ body {
 }
 
 img {
+    border-radius: 100%;
+    background-color: white;
     height: 90px;
     width: 90px;
 }
