@@ -30,9 +30,6 @@ form {
     margin-bottom: 10px;
 }
 
-h2 {
-    font-family: "SFEspressoShack", "Sans-Serif";
-}
 
 hr {
     width: 95%;
@@ -41,6 +38,7 @@ hr {
 
 #form-container {
     padding-left: 0;
+    margin-right: 20px;
 }
 
 form {
@@ -56,11 +54,11 @@ body {
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 20px;
+    margin-left: 20px;
 }
 
 .coffee {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
     align-items: flex-start;
     width: 50%;
@@ -88,4 +86,8 @@ body {
     .heading-wrapper {
         text-align: center;
     }
+}
+
+#wholePage {
+    padding: 0px;
 }

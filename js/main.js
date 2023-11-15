@@ -34,15 +34,35 @@ const debounce = (fn, delay) => {
 const renderCoffee = (coffee) => {
 	const { name, roast } = coffee;
 	const coffeeElement = document.createElement("div");
-	coffeeElement.className = "coffee";
+	coffeeElement.className = "coffee row";
+
+	let imgSrc;
+	switch (roast.toLowerCase()) {
+		case 'light':
+			imgSrc = './img/Converse Cappuccino.svg';
+			break;
+		case 'medium':
+			imgSrc = './img/High-Top Brew.svg';
+			break;
+		case 'dark':
+			imgSrc = './img/Jumpman Java.svg';
+			break;
+		default:
+			imgSrc = './img/Puma Mocha.svg';
+	}
+
 	coffeeElement.innerHTML = `
-        <h3>${name}</h3>
-        <p>${roast}</p>
+        <div class="col-md-3 coffee-image"> 
+            <img src="${imgSrc}" alt="${roast} Roast Image" class="img-fluid">
+        </div>
+        <div class="col-md-9 coffee-info"> 
+            <h3>${name}</h3>
+            <p>${roast}</p>
+        </div>
     `;
 	return coffeeElement;
 };
-
-const renderCoffees = (coffees) => {
+	const renderCoffees = (coffees) => {
 	const coffeeContainer = document.querySelector('#coffees');
 	coffeeContainer.innerHTML = "";
 	const coffeesFragment = document.createDocumentFragment();
