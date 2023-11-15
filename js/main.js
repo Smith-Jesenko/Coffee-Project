@@ -52,10 +52,10 @@ const renderCoffee = (coffee) => {
 	}
 
 	coffeeElement.innerHTML = `
-        <div class="col-md-3 coffee-image"> 
-            <img src="${imgSrc}" alt="${roast} Roast Image" class="img-fluid">
+        <div class="col-md-4 coffee-image"> 
+            <img src="${imgSrc}" alt="${roast} Roast Image">
         </div>
-        <div class="col-md-9 coffee-info"> 
+        <div class="col-md-8 coffee-info"> 
             <h3>${name}</h3>
             <p>${roast}</p>
         </div>
