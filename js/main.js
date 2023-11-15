@@ -1,7 +1,7 @@
 const coffees = localStorage.getItem('storedCoffees') ? JSON.parse(localStorage.getItem('storedCoffees')) : [
 	{id: 1, name: 'Air Roast 1', roast: 'light'},
 	{id: 2, name: 'Venti Vans', roast: 'light'},
-	{id: 3, name: 'Puma Mocha', roast: 'light'},
+	{id: 3, name: 'Sole Espresso', roast: 'light'},
 	{id: 4, name: 'Sneak-a-Latte', roast: 'medium'},
 	{id: 5, name: 'Converse Cappuccino', roast: 'medium'},
 	{id: 6, name: 'Lace-Up Latte', roast: 'medium'},
@@ -39,16 +39,16 @@ const renderCoffee = (coffee) => {
 	let imgSrc;
 	switch (roast.toLowerCase()) {
 		case 'light':
-			imgSrc = './img/Converse Cappuccino.svg';
+			imgSrc = './img/Sneak-a-Latte.svg';
 			break;
 		case 'medium':
-			imgSrc = './img/High-Top Brew.svg';
+			imgSrc = './img/Converse Cappuccino.svg';
 			break;
 		case 'dark':
 			imgSrc = './img/Jumpman Java.svg';
 			break;
 		default:
-			imgSrc = './img/Puma Mocha.svg';
+			imgSrc = './img/default.svg';
 	}
 
 	coffeeElement.innerHTML = `
