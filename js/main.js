@@ -1,92 +1,107 @@
-(() => {
-	function renderCoffee(coffee) {
-		let html = '<div class="coffee">';
-		html += '<h3>' + coffee.name + '</h3>';
-		html += '<p>' + coffee.roast + '</p>';
-		html += '</div>';
+const coffees = localStorage.getItem('storedCoffees') ? JSON.parse(localStorage.getItem('storedCoffees')) : [
+	{id: 1, name: 'Air Roast 1', roast: 'light'},
+	{id: 2, name: 'Venti Vans', roast: 'light'},
+	{id: 3, name: 'Puma Mocha', roast: 'light'},
+	{id: 4, name: 'Sneak-a-Latte', roast: 'medium'},
+	{id: 5, name: 'Converse Cappuccino', roast: 'medium'},
+	{id: 6, name: 'Lace-Up Latte', roast: 'medium'},
+	{id: 7, name: 'High-Top Brew', roast: 'dark'},
+	{id: 8, name: 'Mocha Midsole', roast: 'dark'},
+	{id: 9, name: 'Kickstart Blend', roast: 'dark'},
+	{id: 10, name: 'Jumpman Java', roast: 'dark'},
+	{id: 11, name: 'High Top Honey Cappuccino', roast: 'dark'},
+	{id: 12, name: 'Air Mochaccino', roast: 'dark'},
+	{id: 13, name: 'Air Max Mocha', roast: 'dark'},
+	{id: 14, name: 'Sneakerhead Smores Latte', roast: 'dark'},
+];
 
-		return html;
-	}
-
-	function renderCoffees(coffees) {
-		let html = '';
-		for (let i = 0; i < coffees.length; i++) {
-			html += renderCoffee(coffees[i]);
+const submitButton = document.querySelector('#submit');
+const roastSelection = document.querySelector('#roast-selection');
+const coffee_selection = document.querySelector("#coffee-name");
+const newSubmit = document.querySelector("#new-submit");
+const debounce = (fn, delay) => {
+	let timeoutId;
+	return (...args) => {
+		if (timeoutId) {
+			clearTimeout(timeoutId);
 		}
-		return html;
+		timeoutId = setTimeout(() => {
+			fn(...args);
+		}, delay);
+	};
+};
+
+const renderCoffee = (coffee) => {
+	const { name, roast } = coffee;
+	const coffeeElement = document.createElement("div");
+	coffeeElement.className = "coffee";
+	coffeeElement.innerHTML = `
+        <h3>${name}</h3>
+        <p>${roast}</p>
+    `;
+	return coffeeElement;
+};
+
+const renderCoffees = (coffees) => {
+	const coffeeContainer = document.querySelector('#coffees');
+	coffeeContainer.innerHTML = "";
+	const coffeesFragment = document.createDocumentFragment();
+	coffees.forEach((coffee) => {
+		const coffeeElement = renderCoffee(coffee);
+		coffeesFragment.appendChild(coffeeElement);
+	});
+	coffeeContainer.appendChild(coffeesFragment);
+};
+
+const filterCoffees = () => {
+	const selectedRoast = roastSelection.value;
+	const coffeeName = coffee_selection.value.toLowerCase();
+	return coffees.filter((coffee) =>
+		(coffee.roast === selectedRoast || selectedRoast === "all") &&
+		coffee.name.toLowerCase().indexOf(coffeeName) === 0
+	);
+};
+
+const updateCoffees = (e) => {
+	e.preventDefault();
+	const filteredCoffees = filterCoffees();
+	renderCoffees(filteredCoffees);
+};
+
+const addCoffee = (e) => {
+	e.preventDefault();
+	const newRoast = document.querySelector("#new-roast").value;
+	const newName = document.querySelector("#new-name").value;
+	const newCoffee = {
+		id: coffees.length + 1,
+		name: newName,
+		roast: newRoast
+	};
+	coffees.push(newCoffee);
+	updateCoffees(e);
+	localStorage.setItem('storedCoffees', JSON.stringify(coffees));
+};
+
+const resetMenu = (e) => {
+	e.preventDefault();
+	localStorage.clear();
+	while (coffees.length > 14) {
+		coffees.pop();
 	}
-
-	function updateCoffees(e) {
-		e.preventDefault(); // don't submit the form, we just want to update the data
-		let selectedRoast = roastSelection.value;
-		let coffee_name = coffee_selection.value.toLowerCase();
-		let filteredCoffees = [];
-		coffees.forEach(function (coffee) {
-			if ((coffee.roast === selectedRoast || selectedRoast === "all") && coffee.name.toLowerCase().indexOf(coffee_name) === 0) {
-				filteredCoffees.push(coffee);
-			}
-		});
-		tbody.innerHTML = renderCoffees(filteredCoffees);
-	}
-
-	function addCoffee(e) {
-		e.preventDefault();
-		let newRoast = document.querySelector("#new-roast").value;
-		let newName = document.querySelector("#new-name").value;
-		let newCoffee = {
-			id: coffees.length + 1,
-			name: newName,
-			roast: newRoast
-		}
-		coffees.push(newCoffee);
-		updateCoffees(e);
-
-		// Locally stores updated coffee array
-		localStorage.setItem('storedCoffees', JSON.stringify(coffees));
-	}
-
-// Resets to default menu
-	function resetMenu(e) {
-		e.preventDefault();
-		localStorage.clear();
-		while (coffees.length > 14) {
-			coffees.pop();
-		}
-		updateCoffees(e);
-	}
+	updateCoffees(e);
+};
 
 
-// from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
-	// Assign locally stored list of coffees if available, default menu otherwise
-	let coffees = localStorage.getItem('storedCoffees') ? JSON.parse(localStorage.getItem('storedCoffees')) : [
-		{id: 1, name: 'Light City', roast: 'light'},
-		{id: 2, name: 'Half City', roast: 'light'},
-		{id: 3, name: 'Cinnamon', roast: 'light'},
-		{id: 4, name: 'City', roast: 'medium'},
-		{id: 5, name: 'American', roast: 'medium'},
-		{id: 6, name: 'Breakfast', roast: 'medium'},
-		{id: 7, name: 'High', roast: 'dark'},
-		{id: 8, name: 'Continental', roast: 'dark'},
-		{id: 9, name: 'New Orleans', roast: 'dark'},
-		{id: 10, name: 'European', roast: 'dark'},
-		{id: 11, name: 'Espresso', roast: 'dark'},
-		{id: 12, name: 'Viennese', roast: 'dark'},
-		{id: 13, name: 'Italian', roast: 'dark'},
-		{id: 14, name: 'French', roast: 'dark'},
-	];
-
-
-	let tbody = document.querySelector('#coffees');
-	let submitButton = document.querySelector('#submit');
-	let roastSelection = document.querySelector('#roast-selection');
-	let coffee_selection = document.querySelector("#coffee-name");
-	let newSubmit = document.querySelector("#new-submit");
-
-	tbody.innerHTML = renderCoffees(coffees);
-
-	coffee_selection.addEventListener("keyup", updateCoffees);
+const updateAndHandleFilterEvents = () => {
+	renderCoffees(coffees);
+	coffee_selection.addEventListener("keyup", debounce(updateCoffees, 500));
 	roastSelection.addEventListener("change", updateCoffees);
 	document.querySelector("#reset-btn").addEventListener("click", resetMenu);
 	newSubmit.addEventListener('click', addCoffee);
 	submitButton.addEventListener('click', updateCoffees);
+};
+
+// MAIN
+(() => {
+	updateAndHandleFilterEvents();
 })();
