@@ -49,9 +49,15 @@ const updateCoffees = (e, target, selection) => {
 	const tbody = document.querySelector("#coffees");
 	const submitButton = document.querySelector("#submit");
 	const roastSelection = document.querySelector("#roast-selection");
+	const form = document.querySelector("form");
+
 	renderCoffees(coffees, tbody, roastSelection);
 
-	submitButton.addEventListener("click", (e) => {
+	form.addEventListener("submit", (e) => {
+		e.preventDefault();
 		updateCoffees(e, tbody, roastSelection);
+		form.reset();
 	});
+
+	roastSelection.selectedIndex = 0; // 0 corresponds to the index of "light"
 })();

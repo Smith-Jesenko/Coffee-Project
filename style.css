@@ -1,4 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Chicle&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
+
+
+body {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 16px; /* Adjust the font size as needed */
+    margin: 0;
+}
+
+
+header {
+    font-family: 'Chicle', serif;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f8f8f8; /* Optional: Add a background color to the header for contrast */
+}
+
+#site-title {
+    font-size: 120px; /* Adjust the font size as needed */
+    font-weight: bold;
+    color: #333; /* Optional: Choose a color for the title */
+    line-height: 1;
+}
+#sneaker-inspired {
+    text-align: center;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 20px;
+    color: #666; /* Optional: Choose a color for the text */
+    margin-top: 0px;
+    margin-bottom: 2px; /* Optional: Add margin for separation from the header */
+}
+form {
+    text-align: center;
+    margin: 10px 0; /* Adjust the margin for the form */
+}
+
 table {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    margin: 10px 0; /* Adjust the margin for the table */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Optional: Hover effect on table rows */
+tbody tr:hover {
+    background-color: #ddd;
+}
+
+
+table {
+    border: 1px solid #ddd;
     border-collapse: collapse;
     margin: 15px 0;
 }

@@ -2,33 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>SoleBrew - Sneaker-Inspired Coffee</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Coffee!</h1>
+<header>
+    <h1 id="site-title">SoleBrew</h1>
+</header>
+<div id="sneaker-inspired">Sneaker Inspired Coffee</div>
 
-    <form>
-        <label for="roast-selection"></label>
-        <select id="roast-selection">
-            <option>light</option>
-            <option>medium</option>
-            <option>dark</option>
-        </select>
-        <input id="submit" type="submit" />
-    </form>
+<form>
+    <label for="roast-selection">Select Roast:</label>
+    <select id="roast-selection">
+        <option>light</option>
+        <option>medium</option>
+        <option>dark</option>
+    </select>
+    <input id="submit" type="submit" />
+</form>
 
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>NAME</th>
-                <th>ROAST</th>
-            </tr>
-        </thead>
-        <tbody id="coffees"></tbody>
-    </table>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>ROAST</th>
+    </tr>
+    </thead>
+    <tbody id="coffees"></tbody>
+</table>
 
-    <script src="main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
