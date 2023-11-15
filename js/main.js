@@ -35,14 +35,33 @@ const renderCoffee = (coffee) => {
 	const { name, roast } = coffee;
 	const coffeeElement = document.createElement("div");
 	coffeeElement.className = "coffee";
+	let imgSrc;
+	switch (roast.toLowerCase()) {
+		case 'light':
+			imgSrc = 'light_roast_image.jpg';
+			break;
+		case 'medium':
+			imgSrc = 'medium_roast_image.jpg';
+			break;
+		case 'dark':
+			imgSrc = 'dark_roast_image.jpg';
+			break;
+		default:
+			imgSrc = 'default_image.jpg';
+	}
+
 	coffeeElement.innerHTML = `
-        <h3>${name}</h3>
-        <p>${roast}</p>
+        <div class="coffee-image">
+            <img src="${imgSrc}" alt="${roast} Roast Image">
+        </div>
+        <div class="coffee-info">
+            <h3>${name}</h3>
+            <p>${roast}</p>
+        </div>
     `;
 	return coffeeElement;
 };
-
-const renderCoffees = (coffees) => {
+	const renderCoffees = (coffees) => {
 	const coffeeContainer = document.querySelector('#coffees');
 	coffeeContainer.innerHTML = "";
 	const coffeesFragment = document.createDocumentFragment();
