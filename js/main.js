@@ -1,7 +1,7 @@
 const coffees = localStorage.getItem('storedCoffees') ? JSON.parse(localStorage.getItem('storedCoffees')) : [
 	{id: 1, name: 'Air Roast 1', roast: 'light'},
 	{id: 2, name: 'Venti Vans', roast: 'light'},
-	{id: 3, name: 'Puma Mocha', roast: 'light'},
+	{id: 3, name: 'Sole Espresso', roast: 'light'},
 	{id: 4, name: 'Sneak-a-Latte', roast: 'medium'},
 	{id: 5, name: 'Converse Cappuccino', roast: 'medium'},
 	{id: 6, name: 'Lace-Up Latte', roast: 'medium'},
@@ -39,23 +39,27 @@ const renderCoffee = (coffee) => {
 	let imgSrc;
 	switch (roast.toLowerCase()) {
 		case 'light':
-			imgSrc = './img/Converse Cappuccino.svg';
+<<<<<<<<< Temporary merge branch 1
+			imgSrc = './img/Sneak-a-Latte.svg';
+=========
+			imgSrc = './img/High-Top Brew.svg';
+>>>>>>>>> Temporary merge branch 2
 			break;
 		case 'medium':
-			imgSrc = './img/High-Top Brew.svg';
+			imgSrc = './img/Converse Cappuccino.svg';
 			break;
 		case 'dark':
 			imgSrc = './img/Jumpman Java.svg';
 			break;
 		default:
-			imgSrc = './img/Puma Mocha.svg';
+			imgSrc = './img/default.svg';
 	}
 
 	coffeeElement.innerHTML = `
-        <div class="col-md-4 coffee-image"> 
+        <div class="col-md-3 coffee-image"> 
             <img src="${imgSrc}" alt="${roast} Roast Image" class="img-fluid">
         </div>
-        <div class="col-md-8 coffee-info"> 
+        <div class="col-md-9 coffee-info"> 
             <h3>${name}</h3>
             <p>${roast}</p>
         </div>
