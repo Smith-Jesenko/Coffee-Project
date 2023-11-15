@@ -39,10 +39,10 @@ const renderCoffee = (coffee) => {
 	let imgSrc;
 	switch (roast.toLowerCase()) {
 		case 'light':
-			imgSrc = './img/High-Top Brew.svg';
+			imgSrc = './img/Converse Cappuccino.svg';
 			break;
 		case 'medium':
-			imgSrc = './img/Converse Cappuccino.svg';
+			imgSrc = './img/High-Top Brew.svg';
 			break;
 		case 'dark':
 			imgSrc = './img/Jumpman Java.svg';
@@ -52,10 +52,10 @@ const renderCoffee = (coffee) => {
 	}
 
 	coffeeElement.innerHTML = `
-        <div class="col-md-3 coffee-image"> 
+        <div class="col-md-4 coffee-image"> 
             <img src="${imgSrc}" alt="${roast} Roast Image" class="img-fluid">
         </div>
-        <div class="col-md-9 coffee-info"> 
+        <div class="col-md-8 coffee-info"> 
             <h3>${name}</h3>
             <p>${roast}</p>
         </div>
