@@ -20,6 +20,8 @@ form {
     font-family: 'Chicle', serif;
     font-size: 5rem;
     letter-spacing: .2rem;
+    -webkit-text-stroke: 3px black;
+    text-stroke: 10px black;
 }
 
 .heading-wrapper #sneaker-inspired {
@@ -29,7 +31,13 @@ form {
     color: white;
     margin-top: 0;
     margin-bottom: 10px;
+    text-shadow:
+            -1px -1px 0 black,
+            1px -1px 0 black,
+            -1px  1px 0 black,
+            1px  1px 0 black;
 }
+
 
 
 hr {
