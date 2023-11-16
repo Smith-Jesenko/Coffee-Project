@@ -126,6 +126,11 @@ img {
     width: 90px;
 }
 
+img:hover{
+    opacity: 1;
+    transform: scale(1.1);
+}
+
 /*Animations*/
 
 @keyframes slideInTop {
