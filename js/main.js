@@ -120,6 +120,21 @@ const updateAndHandleFilterEvents = () => {
 	newSubmit.addEventListener('click', addCoffee);
 	submitButton.addEventListener('click', updateCoffees);
 };
+//
+document.addEventListener("DOMContentLoaded", () => {
+	const hoverSound = new Audio("./audio/Squeak.mp3");
+
+	const images = document.querySelectorAll(".coffee-image img");
+
+	images.forEach(image => {
+		image.addEventListener("mouseenter", () => {
+			hoverSound.currentTime = 0;
+			hoverSound.play();
+		});
+	});
+});
+
+
 
 // MAIN
 (() => {
